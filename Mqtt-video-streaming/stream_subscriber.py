@@ -1,15 +1,4 @@
 #!/usr/bin/env python
-"""
-Stream_publisher.py: Send video stream via Mosquitto MQTT topic
-"""
-
-__author__ = "Jatin Goyal"
-__copyright__ = "Copyright 2022, Video surveillance Project"
-__license__ = "GPL"
-__version__ = "1.0.1"
-__maintainer__ = "Jatin Goyal"
-__email__ = "robojatin@gmail.com"
-__status__ = "Production"
 
 import cv2
 import threading
@@ -19,17 +8,6 @@ import subprocess
 class Stream_publisher:
     
     def __init__(self, topic, video_address=0, start_stream=True, host="3.110.177.25", port=1883) -> None:
-        """
-        Construct a new 'Stream_publisher' object to broadcast a video stream using Mosquitto MQTT.
-
-        :param topic: MQTT topic to send stream
-        :param video_address: Video source address for OpenCV (default: 0 for webcam)
-        :param start_stream: Flag to start streaming upon object creation (default: True)
-        :param host: MQTT Broker IP address
-        :param port: MQTT Broker port
-        
-        :return: None
-        """
         
         self.client = mqtt.Client()  # MQTT client instance
         self.client.connect(host, port)  # Connect to MQTT Broker
