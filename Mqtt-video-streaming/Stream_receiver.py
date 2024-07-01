@@ -1,14 +1,4 @@
 #!/usr/bin/env python
-"""Stream_publisher.py: Send video stream via Mosquitto Mqtt topic """
-
-__author__ = "Jatin Goyal"
-__copyright__ = "Copyright 2022, Video surveillance Project"
-__license__ = "GPL"
-__version__ = "1.0.1"
-__maintainer__ = "Jatin Goyal"
-__email__ = "robojatin@gmail.com"
-__status__ = "Production"
-
 
 import cv2
 import threading
@@ -18,18 +8,6 @@ import paho.mqtt.client as mqtt
 class Stream_receiver:
 
     def __init__(self, topic='',host="3.110.177.25",port=1883):
-
-        """
-        Construct a new 'stream_receiver' object to retreive a video stream using Mosquitto_MQTT
-
-        :param topic: MQTT topic to send Stream         
-        :param host:  IP address of Mosquitto MQTT Broker
-        :param Port:  Port at which Mosquitto MQTT Broker is listening
-        
-        :return: returns nothing
-
-        : use " object.frame  "  it contains latest frame received
-        """
 
         self.topic=topic
         self.frame=None  # empty variable to store latest message received
