@@ -2,7 +2,7 @@ import logging
 import paho.mqtt.client as mqtt
 
 logging.basicConfig(level=logging.DEBUG)
-
+global tt
 broker_ip = "3.110.177.25"  # MQTT broker IP address
 topic = "test"
 
@@ -12,6 +12,9 @@ def on_connect(client, userdata, flags, rc):
 
 def on_message(client, userdata, msg):
     logging.debug(f"Received message on topic {msg.topic}: {msg.payload.decode()}")
+    tt = msg.payload.decode()
+    print(tt)
+
 
 client = mqtt.Client()
 client.on_connect = on_connect
